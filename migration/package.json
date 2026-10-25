@@ -1,0 +1,10 @@
+{
+  "name": "chandrabhaga-migration",
+  "version": "1.0.0",
+  "description": "MySQL to MongoDB migration script for Chandrabhaga School",
+  "main": "migrate.js",
+  "scripts": {
+    "start": "node migrate.js",
+    "migrate": "node migrate.js"
+  }
+}

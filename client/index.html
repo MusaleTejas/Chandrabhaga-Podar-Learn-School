@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="theme-color" content="#321341" />
+    <meta name="description" content="Chandrabhaga Podar Learn School, Dindrud - CBSE Affiliated Senior Secondary School providing excellence in learning, character building and holistic student development." />
+    <title>Chandrabhaga Podar Learn School, Dindrud</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/images/logo.svg" />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    <link rel="stylesheet" href="/assets/css/admin.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Primary React SPA Application Script -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Visually hidden Google Translate Container (kept in DOM for background translation) -->
+    <div id="google_translate_element" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true"></div>
+
+    <!-- Google Translate Initialization Script (Loaded asynchronously without blocking React) -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,mr,hi',
+            autoDisplay: false
+          }, 'google_translate_element');
+        }
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+  </body>
+</html>

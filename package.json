@@ -1,0 +1,15 @@
+{
+  "name": "chandrabhaga-school-mern",
+  "version": "1.0.0",
+  "description": "Chandrabhaga Podar Learn School, Dindrud - MERN Stack Web Application",
+  "scripts": {
+    "dev": "node start-dev.js",
+    "start": "npm run start --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "test": "node server/test_suite.js"
+  },
+  "keywords": ["mern", "school", "react", "express", "mongodb"],
+  "author": "Antigravity Pair Programming Team",
+  "license": "ISC"
+}
