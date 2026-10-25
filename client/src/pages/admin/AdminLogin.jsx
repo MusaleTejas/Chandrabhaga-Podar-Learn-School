@@ -9,6 +9,7 @@ const AdminLogin = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -30,7 +31,13 @@ const AdminLogin = () => {
       await login(username.trim(), password);
       navigate('/admin');
     } catch (err) {
-      setError(err.response?.data?.message || 'Invalid credentials provided or account inactive.');
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (err.message && err.message.toLowerCase().includes('network')) {
+        setError('Network Error: Unable to reach backend server. Please verify the backend is running.');
+      } else {
+        setError(err.message || 'Invalid credentials provided or account inactive.');
+      }
     } finally {
       setSubmitting(false);
     }
@@ -72,11 +79,20 @@ const AdminLogin = () => {
           </div>
 
           <div style={{ marginBottom: '24px' }}>
-            <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, marginBottom: '6px', color: 'var(--ink)' }}>
-              Administrator Password
-            </label>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <label style={{ fontSize: '13px', fontWeight: 700, color: 'var(--ink)' }}>
+                Administrator Password
+              </label>
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ background: 'none', border: 'none', color: 'var(--purple)', fontSize: '12px', fontWeight: 600, cursor: 'pointer', padding: 0 }}
+              >
+                {showPassword ? 'Hide Password' : 'Show Password'}
+              </button>
+            </div>
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
